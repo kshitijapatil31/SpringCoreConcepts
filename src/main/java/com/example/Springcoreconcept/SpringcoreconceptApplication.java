@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.example.Springcoreconcept.component.DemoBean;
+import com.example.Springcoreconcept.component.EmployeeBean;
 import com.example.Springcoreconcept.controller.HelloRestController;
 
 @SpringBootApplication
@@ -19,8 +20,14 @@ public class SpringcoreconceptApplication {
 		System.out.println("Hello java..!!");
 		ApplicationContext context=SpringApplication.run(SpringcoreconceptApplication.class, args);
 	    DemoBean demoBean=context.getBean(DemoBean.class);
-	    logger.debug(demoBean.toString());
+	    logger.debug("context{}",context.getBean(DemoBean.class));
 	    System.out.println(context.getBean(HelloRestController.class));
+	    EmployeeBean employeeBean=context.getBean(EmployeeBean.class);
+	    employeeBean.setEid(102);
+	    employeeBean.setEname("Spring framework");
+	    employeeBean.showEmployeeDetails();
+	
+	
 	}
 
 }
